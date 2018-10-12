@@ -35,11 +35,13 @@ Exemple d'entrée:
     'Star Wars: Episode III - Revenge of the Sith'
   ]
 
-
  */
 
 function searchWordFilter(items, search) {
+  return items.filter( item => item.toLowerCase().indexOf(search.toLowerCase()) >= 0)
 }
+
+
 
 // Ne pas modifier l'export
 module.exports = searchWordFilter;

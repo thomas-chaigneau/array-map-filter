@@ -49,10 +49,21 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
     surface: "380.133"
   }
 ]
-*/
+// */
 
 function getCirclesProperties(radiuses) {
+
+  const circleBoost = (radius) => {
+    const getR = (radius) => radius;
+    const getC = (radius) => (radius * Math.PI * 2).toFixed(3);
+    const getS = (radius) => (radius * Math.PI * radius).toFixed(3);
+    return {radius: getR(radius) ,circumference: getC(radius),surface: getS(radius)}
+
+  }
+    return radiuses.map( nb =>  circleBoost(nb) )
 }
+
+// console.log(getCirclesProperties([1, 3, 4.5, 7]))
 
 
 

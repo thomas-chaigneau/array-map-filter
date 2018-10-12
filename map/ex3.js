@@ -60,9 +60,20 @@ En sortie:
  */
 
 function getMoviesFreshness(movies) {
+
+  const getLabel = (para) => {
+    if (para.rating > 75 ) return 'certified fresh';
+    else if (para.rating < 60 ) return 'rotten';
+    else return'fresh'
+  }
+
+  return movies.map( movie => Object.defineProperty(movie, 'label', {value : getLabel(movie),
+                                                                     writable : true,
+                                                                     enumerable : true,
+                                                                     configurable : true}))
 }
 
 
-
+ 
 // Ne pas modifier l'export
 module.exports = getMoviesFreshness;
